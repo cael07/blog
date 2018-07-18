@@ -15,7 +15,7 @@ if($link === false){
 $sql = "SELECT * FROM content";
 if($result = mysqli_query($link, $sql)){
     if(mysqli_num_rows($result) > 0){
-        echo "<b>Blogs</b> <a href=\"http://localhost/blog/blogcreate.php\">Create New</a> <a href=\"http://localhost/blog/blogout.php\">Log Out</a>";
+        echo "<h2>Blogs</h2> <a href=\"http://localhost/blog/blogcreate.php\">Create New</a> <a href=\"http://localhost/blog/blogout.php\">Log Out</a>";
         echo "<table>";
             echo "<tr>";
                 echo "<th>id</th>";
@@ -81,7 +81,7 @@ if($link === false){
 $sql = "SELECT * FROM content";
 if($result = mysqli_query($link, $sql)){
     if(mysqli_num_rows($result) > 0){
-        echo "<b>Blogs</b>";
+        echo "<h2>Blogs</h2>";
         echo "<table>";
             echo "<tr>";
                 echo "<th>id</th>";

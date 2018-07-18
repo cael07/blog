@@ -10,8 +10,6 @@ if($conn === false){
  // Check if the form is submitted  // retrieve the form data by using the element's name attributes value as key 
  $username = $_POST['username']; 
   $password = $_POST['password'];
-  echo $username;
-  echo $password;
   // display the results echo '<h3>Form GET Method</h3>'; 
   $sql = "SELECT username, password FROM user WHERE username='" . $username . "' and password = '". $password."'";
    $res = mysqli_query($conn, $sql);

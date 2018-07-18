@@ -17,9 +17,9 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="./blogview.php">View Blogs</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
-      <li><a href="#">Page 3</a></li>
+    </ul>
+        <ul class="nav navbar-nav pull-right">
+      <li><a href="http://localhost/blog/index.php">Login/Register</a></li>
 
 
     </ul>
