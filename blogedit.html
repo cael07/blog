@@ -1,0 +1,58 @@
+<?php
+	$hostname = "localhost";//host name
+	$dbname = "blog";//database name
+	$username = "root";//username you use to login to php my admin
+	$password = "";//password you use to login
+	
+	//CONNECTION OBJECT
+	//This Keeps the Connection to the Databade
+	$conn = new MySQLi($hostname, $username, $password, $dbname) or die('Can not connect to database')		
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+</head>
+<body>
+<?php
+$id = 1;
+$sql = "SELECT * FROM content WHERE id = '".$id."'";
+$result = $conn->query($sql) or die(mysql_error());
+$query=getenv(QUERY_STRING);
+parse_str($query);
+?>
+<h2>Update Record <?php echo $bookid;?></h2>
+<form action="" method="post">
+<?php
+	
+	
+	while ($row = $result->fetch_assoc()) {?>
+    
+<table border="0" cellspacing="10">
+<tr>
+<td>Title:</td> <td><input type="text" name="title" value="<?php echo $row['title']; ?>"></td>
+</tr>
+<tr>
+<td>Body:</td> <td><input type="text" name="body" value="<?php echo $row['body']; ?>"></td>
+</tr>
+<tr>
+<td><INPUT TYPE="Submit" VALUE="Update the Record" NAME="Submit"></td>
+</tr>
+</table>
+<?php	}
+	?>
+</form>
+<?php
+	if(isset($_POST['Submit'])){//if the submit button is clicked
+	
+	$title = $_POST['title'];
+	$body = $_POST['body'];
+	
+	$query="UPDATE blog SET body=$body where BookID = '".$id."'";
+	//$query = "UPDATE Books WHERE BookID = '".$bookid."'";//update the database query
+	mysql_query($query) or die("Cannot update");//update or error
+	}
+?>
+</body>
+</html>
